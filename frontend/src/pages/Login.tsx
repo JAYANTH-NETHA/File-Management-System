@@ -6,7 +6,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { MOCK_CREDENTIALS } from "@/data/mockData";
 import { FileText } from "lucide-react";
 
 export default function Login() {
@@ -86,11 +85,6 @@ export default function Login() {
               Don't have an account?{" "}
               <Link to="/register" className="text-primary font-medium hover:underline">Sign up</Link>
             </p>
-            <div className="w-full rounded-lg bg-muted p-3 text-xs text-muted-foreground space-y-1">
-              <p className="font-medium text-foreground">Demo credentials:</p>
-              <p>Admin: {MOCK_CREDENTIALS.admin.email} / {MOCK_CREDENTIALS.admin.password}</p>
-              <p>Customer: {MOCK_CREDENTIALS.customer.email} / {MOCK_CREDENTIALS.customer.password}</p>
-            </div>
           </CardFooter>
         </Card>
       </div>

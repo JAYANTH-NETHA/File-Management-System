@@ -88,31 +88,38 @@ public class FileService {
         return convertToDto(file);
     }
 
-    public void deleteFile(Long fileId, User user) {
-        FileEntity file = fileRepository.findById(fileId)
-                .orElseThrow(() -> new ResourceNotFoundException("File not found with id: " + fileId));
+public void deleteFile(Long fileId, User user) {
+    FileEntity file = fileRepository.findById(fileId)
+            .orElseThrow(() -> new ResourceNotFoundException("File not found with id: " + fileId));
 
-        if (!file.getUser().getId().equals(user.getId())) {
-            throw new UnauthorizedAccessException("You don't have permission to delete this file");
-        }
+    // 1. IMPROVED PERMISSION CHECK
+    boolean isOwner = file.getUser().getId().equals(user.getId());
+    
+    // Check if the role is ADMIN (adjust "ADMIN" to match your database exactly)
+    boolean isAdmin = user.getRole().name().equals("ADMIN") || user.getRole().name().equals("ROLE_ADMIN");
 
-        try {
-            if (file.getFilePath() != null) {
-                Files.deleteIfExists(Paths.get(file.getFilePath()));
-            }
-            String fileName = file.getName();
-            fileRepository.delete(file);
-            
-            // Log activity
-            activityService.logActivity(user, "file_delete", 
-                    "Deleted " + fileName);
-            
-            log.info("File deleted successfully: {} by user: {}", fileId, user.getEmail());
-        } catch (IOException e) {
-            log.error("Failed to delete file: {}", e.getMessage());
-            throw new RuntimeException("Failed to delete file", e);
-        }
+    if (!isOwner && !isAdmin) {
+        throw new UnauthorizedAccessException("You don't have permission to delete this file");
     }
+
+    try {
+        // 2. Delete physical file from the "uploads" folder
+        if (file.getFilePath() != null) {
+            Files.deleteIfExists(Paths.get(file.getFilePath()));
+        }
+        
+        // 3. Delete from Database
+        fileRepository.delete(file);
+        
+        // 4. Log the activity
+        activityService.logActivity(user, "file_delete", "Deleted " + file.getName());
+        
+        log.info("File {} deleted successfully by {}", fileId, user.getEmail());
+    } catch (IOException e) {
+        log.error("Failed to delete physical file: {}", e.getMessage());
+        throw new RuntimeException("Failed to delete file", e);
+    }
+}
 
     public byte[] downloadFile(Long fileId) throws IOException {
         FileEntity file = fileRepository.findById(fileId)

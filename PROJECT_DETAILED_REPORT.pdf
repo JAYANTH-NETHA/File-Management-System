@@ -1,0 +1,1904 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier >>
+endobj
+4 0 obj
+<< /Length 4398 >>
+stream
+BT
+/F2 19 Tf
+1 0 0 1 46 794 Tm
+(Secure File Management System) Tj
+ET
+BT
+/F2 12.5 Tf
+1 0 0 1 46 770 Tm
+(Technical Architecture & Design Document) Tj
+ET
+BT
+/F1 10.5 Tf
+1 0 0 1 46 754 Tm
+(Full-Stack RBAC File Platform) Tj
+ET
+BT
+/F1 10.5 Tf
+1 0 0 1 46 740 Tm
+(Spring Boot 3.2 + React 18 + MySQL 8.0) Tj
+ET
+BT
+/F1 10.5 Tf
+1 0 0 1 46 726 Tm
+(Version 1.0 | February 2026) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 704 Tm
+(Table of Contents) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 688 Tm
+(1. Project Overview) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 672 Tm
+(2. Technology Stack) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 656 Tm
+(3. System Architecture) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 640 Tm
+(4. Entity Relationship Diagram) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 624 Tm
+(5. Authentication & JWT Flow) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 608 Tm
+(6. Role-Based Access Control) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 592 Tm
+(7. File CRUD Operations) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 576 Tm
+(8. File Upload & Access Flow) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 560 Tm
+(9. Frontend-Backend Communication) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 544 Tm
+(10. API Endpoints Reference) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 528 Tm
+(11. Database Schema) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 512 Tm
+(12. Security Architecture) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 496 Tm
+(13. Frontend Pages & Components) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 480 Tm
+(14. Deployment Configuration) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 464 Tm
+(15. Demo Credentials) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 440 Tm
+(List of Figures) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 426 Tm
+(Figure 3.1 - Master architecture overview of frontend, backend, security, and storage layers.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 413 Tm
+(Figure 3.2 - End-to-end system architecture flow across application tiers.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 400 Tm
+(Figure 3.3 - Detailed component-level architecture for integration and execution paths.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 387 Tm
+(Figure 5.1 - Authentication and JWT token lifecycle from login to protected requests.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 374 Tm
+(Figure 8.1 - File upload, persistence, and response flow for authenticated users.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 361 Tm
+(Figure 9.1 - Frontend-to-backend request pipeline with interceptor and security layers.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 348 Tm
+(Figure 13.1 - Login screen used for credential-based access.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 335 Tm
+(Figure 13.2 - Registration screen for onboarding new users.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 322 Tm
+(Figure 13.3 - Root application view after route resolution.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 309 Tm
+(Figure 13.4 - Structural UI diagram of login page components and flow.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 296 Tm
+(Figure 13.5 - Structural UI diagram of registration page components and flow.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 283 Tm
+(Figure 13.6 - Structural UI diagram of dashboard composition and actions.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 270 Tm
+(Figure 14.1 - Backend setup and runtime verification sequence for local environment.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 249 Tm
+(1. Project Overview) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 225 Tm
+(The Secure File Management System is a full-stack CRM-oriented application built to provide secure) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 212 Tm
+(file upload, retrieval, download, and management capabilities using stateless JWT authentication) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 199 Tm
+(and role-based authorization.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 178 Tm
+(Key Features) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 164 Tm
+(Feature | Description) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 151.2 Tm
+(Authentication | JWT-based login and registration with token validation filter chain) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 138.39999999999998 Tm
+(Role Isolation | ADMIN and CUSTOMER roles with separate route and API access boundaries) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 125.59999999999998 Tm
+(File Management | Upload, list, download, and delete operations tied to authenticated user context) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 112.79999999999998 Tm
+(Admin Operations | Admin dashboard endpoints for global user/file/statistics visibility) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 99.99999999999999 Tm
+(Session Handling | Auto-restore from localStorage and auto-logout on unauthorized responses) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 79.19999999999999 Tm
+(Business Rules) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 65.19999999999999 Tm
+(- Only authenticated users can access protected APIs.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 4 0 R >>
+endobj
+6 0 obj
+<< /Length 4679 >>
+stream
+BT
+/F1 9.5 Tf
+1 0 0 1 46 794 Tm
+(- Admin APIs are accessible only by ADMIN role.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 781.2 Tm
+(- User file listing is scoped to authenticated principal identity.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 768.4000000000001 Tm
+(- 401 and 403 responses clear session and force re-login.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 747.6000000000001 Tm
+(2. Technology Stack) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 723.6000000000001 Tm
+(Backend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 709.6000000000001 Tm
+(Technology | Version | Purpose) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 696.8000000000002 Tm
+(Java | 17 | Programming language) Tj
+ET
+BT
+/F1 10.5 Tf
+1 0 0 1 46 684.0000000000002 Tm
+(Spring Boot | 3.2.x | Application framework) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 670.0000000000002 Tm
+(Spring Security | 6.x | Authentication and authorization) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 657.2000000000003 Tm
+(Spring Data JPA | 3.x | ORM and repository abstraction) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 644.4000000000003 Tm
+(JJWT | 0.12.x | JWT generation and validation) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 631.6000000000004 Tm
+(MySQL | 8.x | Relational data storage) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 618.8000000000004 Tm
+(Maven | 3.x | Build and dependency management) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 598.0000000000005 Tm
+(Frontend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 584.0000000000005 Tm
+(Technology | Version | Purpose) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 571.2000000000005 Tm
+(React | 18.x | UI library) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 558.4000000000005 Tm
+(TypeScript | 5.x | Type-safe frontend code) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 545.6000000000006 Tm
+(Vite | 5.x | Dev server and bundler) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 532.8000000000006 Tm
+(React Router | 6.x | Client-side routing) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 520.0000000000007 Tm
+(Axios | 1.x | HTTP client with interceptors) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 507.20000000000067 Tm
+(Tailwind + shadcn/ui | current | Component styling and UI primitives) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 486.40000000000066 Tm
+(Runtime Ports) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 472.40000000000066 Tm
+(- Frontend: http://localhost:3000) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 459.60000000000065 Tm
+(- Backend API: http://localhost:8080/api) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 438.80000000000064 Tm
+(3. System Architecture) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 414.80000000000064 Tm
+(The platform follows a standard three-layer architecture:) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 393.80000000000064 Tm
+(Presentation Layer) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 379.80000000000064 Tm
+(- React SPA with role-aware navigation and protected routes.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 367.0000000000006 Tm
+(- AuthContext handles token/user state and session restoration.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 346.2000000000006 Tm
+(Application Layer) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 332.2000000000006 Tm
+(- Spring REST controllers for auth/file/admin modules.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 319.4000000000006 Tm
+(- Service layer for business rules and orchestration.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 306.6000000000006 Tm
+(- Security chain with JWT filter before username/password authentication filter.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 285.8000000000006 Tm
+(Data Layer) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 271.8000000000006 Tm
+(- MySQL stores users and file metadata.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 259.00000000000057 Tm
+(- Server filesystem stores file binaries in uploads directory.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 238.20000000000056 Tm
+(Architecture Highlights) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 224.20000000000056 Tm
+(- Stateless API design with Bearer token model.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 211.40000000000055 Tm
+(- Centralized axios interceptors for auth header injection and global 401/403 handling.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 198.60000000000053 Tm
+(- Clear mapping between DTOs and entities.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 177.80000000000052 Tm
+(Related Diagrams) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 163.80000000000052 Tm
+(- images/master-architecture.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 151.0000000000005 Tm
+(- images/system-architecture-flow.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 138.2000000000005 Tm
+(- images/architecture-detailed-view.png) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 117.4000000000005 Tm
+(![Master Architecture]\(master-architecture.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 104.4000000000005 Tm
+(Figure 3.1: Master architecture overview of frontend, backend, security, and storage layers.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 83.4000000000005 Tm
+(![System Architecture Flow]\(system-architecture-flow.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 70.4000000000005 Tm
+(Figure 3.2: End-to-end system architecture flow across application tiers.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 6 0 R >>
+endobj
+8 0 obj
+<< /Length 4068 >>
+stream
+BT
+/F1 9.7 Tf
+1 0 0 1 46 794 Tm
+(![Detailed Architecture View]\(architecture-detailed-view.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 781 Tm
+(Figure 3.3: Detailed component-level architecture for integration and execution paths.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 760 Tm
+(4. Entity Relationship Diagram) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 736 Tm
+(Core Entities) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 714 Tm
+(User) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 700 Tm
+(- id \(PK\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 687.2 Tm
+(- email \(unique\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 674.4000000000001 Tm
+(- password) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 661.6000000000001 Tm
+(- firstName) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 648.8000000000002 Tm
+(- lastName) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 636.0000000000002 Tm
+(- role \(ADMIN, CUSTOMER\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 623.2000000000003 Tm
+(- avatar) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 610.4000000000003 Tm
+(- createdAt) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 597.6000000000004 Tm
+(- updatedAt) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 576.8000000000004 Tm
+(FileEntity) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 562.8000000000004 Tm
+(- id \(PK\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 550.0000000000005 Tm
+(- name) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 537.2000000000005 Tm
+(- type) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 524.4000000000005 Tm
+(- size) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 511.60000000000053 Tm
+(- filePath) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 498.8000000000005 Tm
+(- uploadedAt) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 486.0000000000005 Tm
+(- user \(FK\)) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 465.2000000000005 Tm
+(Relationships) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 451.2000000000005 Tm
+(Relationship | Type | Description) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 438.4000000000005 Tm
+(User -> FileEntity | One-to-Many | One user owns multiple files) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 425.6000000000005 Tm
+(FileEntity -> User | Many-to-One | Each file belongs to exactly one user) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 404.80000000000047 Tm
+(Constraints) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 390.80000000000047 Tm
+(- User.email is unique.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 378.00000000000045 Tm
+(- FileEntity.user must reference a valid user id.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 365.20000000000044 Tm
+(- Ownership checks are derived from authenticated principal.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 344.40000000000043 Tm
+(5. Authentication & JWT Flow) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 320.40000000000043 Tm
+(Authentication Sequence) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 306.40000000000043 Tm
+(1. User submits credentials to /auth/login.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 290.40000000000043 Tm
+(2. Backend validates credentials via authentication manager.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 274.40000000000043 Tm
+(3. JwtUtil generates JWT containing role claim and expiry.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 258.40000000000043 Tm
+(4. Frontend stores token and user payload in localStorage.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 242.40000000000043 Tm
+(5. User is redirected to /admin or /dashboard based on role.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 218.40000000000043 Tm
+(Validation Sequence) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 204.40000000000043 Tm
+(1. Axios request interceptor attaches Bearer token.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 188.40000000000043 Tm
+(2. JwtAuthenticationFilter validates signature and expiration.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 172.40000000000043 Tm
+(3. SecurityContext is set with authenticated principal.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 156.40000000000043 Tm
+(4. Request reaches controller under role constraints.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 132.40000000000043 Tm
+(Token Handling Notes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 118.40000000000043 Tm
+(- Token is attached automatically from localStorage.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 105.60000000000043 Tm
+(- Invalid/expired token triggers session reset and redirect to /login.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 84.80000000000044 Tm
+(![Authentication and JWT Flow]\(authentication-flow.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 71.80000000000044 Tm
+(Figure 5.1: Authentication and JWT token lifecycle from login to protected requests.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 8 0 R >>
+endobj
+10 0 obj
+<< /Length 4094 >>
+stream
+BT
+/F2 12 Tf
+1 0 0 1 46 794 Tm
+(6. Role-Based Access Control) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 770 Tm
+(Permission Summary) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 756 Tm
+(Capability | ADMIN | CUSTOMER) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 743.2 Tm
+(Login | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 730.4000000000001 Tm
+(Register | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 717.6000000000001 Tm
+(View own profile | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 704.8000000000002 Tm
+(Upload file | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 692.0000000000002 Tm
+(List own files | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 679.2000000000003 Tm
+(Download own file | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 666.4000000000003 Tm
+(Delete own file | Yes | Yes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 653.6000000000004 Tm
+(View admin users endpoint | Yes | No) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 640.8000000000004 Tm
+(View admin files endpoint | Yes | No) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 628.0000000000005 Tm
+(View dashboard stats endpoint | Yes | No) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 607.2000000000005 Tm
+(Enforcement Layers) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 593.2000000000005 Tm
+(- Frontend: ProtectedRoute role prop and route grouping in App.tsx.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 580.4000000000005 Tm
+(- Backend: SecurityConfig requestMatchers with hasRole checks.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 559.6000000000006 Tm
+(7. File CRUD Operations) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 535.6000000000006 Tm
+(Create \(Upload\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 521.6000000000006 Tm
+(- Endpoint: POST /files/upload) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 508.8000000000006 Tm
+(- Input: multipart/form-data with file) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 496.00000000000057 Tm
+(- Output: FileDto) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 475.20000000000056 Tm
+(Read \(List/User\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 461.20000000000056 Tm
+(- Endpoint: GET /files/user) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 448.40000000000055 Tm
+(- Output: FileDto[] scoped to current authenticated user) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 427.60000000000053 Tm
+(Read \(Single\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 413.60000000000053 Tm
+(- Endpoint: GET /files/{id}) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 400.8000000000005 Tm
+(- Output: FileDto) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 380.0000000000005 Tm
+(Delete) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 366.0000000000005 Tm
+(- Endpoint: DELETE /files/{id}) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 353.2000000000005 Tm
+(- Output: 200 OK or error payload) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 332.4000000000005 Tm
+(Download) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 318.4000000000005 Tm
+(- Endpoint: GET /files/download/{id}) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 305.6000000000005 Tm
+(- Output: binary stream with content-disposition attachment header) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 284.80000000000047 Tm
+(8. File Upload & Access Flow) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 260.80000000000047 Tm
+(Flow) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 246.80000000000047 Tm
+(1. User selects file from dashboard files page.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 230.80000000000047 Tm
+(2. Frontend builds FormData and calls upload endpoint.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 214.80000000000047 Tm
+(3. Backend validates token and resolves user context.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 198.80000000000047 Tm
+(4. File is stored to server path, metadata persisted in MySQL.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 182.80000000000047 Tm
+(5. Response returns FileDto and UI refreshes listing.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 158.80000000000047 Tm
+(Follow-up Access) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 144.80000000000047 Tm
+(- User can list uploaded files via /files/user.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 132.00000000000045 Tm
+(- User can download or delete permitted files.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 111.20000000000046 Tm
+(Related Diagram) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 97.20000000000046 Tm
+(- images/file-upload-flow.png) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 76.40000000000046 Tm
+(![File Upload Flow]\(file-upload-flow.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 63.40000000000046 Tm
+(Figure 8.1: File upload, persistence, and response flow for authenticated users.) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 10 0 R >>
+endobj
+12 0 obj
+<< /Length 3993 >>
+stream
+BT
+/F2 12 Tf
+1 0 0 1 46 786 Tm
+(9. Frontend-Backend Communication) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 762 Tm
+(Request Pipeline) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 748 Tm
+(1. UI action invokes service method.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 732 Tm
+(2. Service uses shared axios instance.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 716 Tm
+(3. Request interceptor injects Authorization header.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 700 Tm
+(4. Request is sent to http://localhost:8080/api.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 684 Tm
+(5. Spring Security validates token and role.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 668 Tm
+(6. Controller -> Service -> Repository flow executes.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 652 Tm
+(7. JSON \(or binary for download\) response is returned.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 628 Tm
+(Error Handling) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 614 Tm
+(- 401/403: frontend clears auth_token and auth_user.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 601.2 Tm
+(- Browser redirects to /login.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 580.4000000000001 Tm
+(Integration Diagram) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 566.4000000000001 Tm
+(- images/frontend-backend-integration.png) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 545.6000000000001 Tm
+(![Frontend Backend Integration]\(frontend-backend-integration.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 532.6000000000001 Tm
+(Figure 9.1: Frontend-to-backend request pipeline with interceptor and security layers.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 511.60000000000014 Tm
+(10. API Endpoints Reference) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 487.60000000000014 Tm
+(Authentication) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 473.60000000000014 Tm
+(Method | Endpoint | Description) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 460.8000000000001 Tm
+(POST | /auth/login | Authenticate and return JWT + user) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 448.0000000000001 Tm
+(POST | /auth/register | Register user and return auth payload) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 435.2000000000001 Tm
+(GET | /auth/profile | Return current user profile) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 414.4000000000001 Tm
+(Files) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 400.4000000000001 Tm
+(Method | Endpoint | Description) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 387.6000000000001 Tm
+(POST | /files/upload | Upload file for authenticated user) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 374.80000000000007 Tm
+(GET | /files/user | List files of authenticated user) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 362.00000000000006 Tm
+(GET | /files/{id} | Fetch metadata for specific file) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 349.20000000000005 Tm
+(DELETE | /files/{id} | Delete file by id) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 336.40000000000003 Tm
+(GET | /files/download/{id} | Download file binary) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 315.6 Tm
+(Admin) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 301.6 Tm
+(Method | Endpoint | Description) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 288.8 Tm
+(GET | /admin/users | List users \(admin only\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 276 Tm
+(GET | /admin/files | List files \(admin only\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 263.2 Tm
+(GET | /admin/dashboard-stats | Dashboard metrics \(admin only\)) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 242.39999999999998 Tm
+(11. Database Schema) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 218.39999999999998 Tm
+(Users Table) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 204.39999999999998 Tm
+(- id BIGINT PK) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 191.59999999999997 Tm
+(- email VARCHAR UNIQUE) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 178.79999999999995 Tm
+(- password VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 165.99999999999994 Tm
+(- first_name VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 153.19999999999993 Tm
+(- last_name VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 140.39999999999992 Tm
+(- role VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 127.59999999999992 Tm
+(- avatar VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 114.79999999999993 Tm
+(- created_at TIMESTAMP) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 101.99999999999993 Tm
+(- updated_at TIMESTAMP) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 81.19999999999993 Tm
+(Files Table) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 67.19999999999993 Tm
+(- id BIGINT PK) Tj
+ET
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 12 0 R >>
+endobj
+14 0 obj
+<< /Length 3980 >>
+stream
+BT
+/F1 9.5 Tf
+1 0 0 1 46 794 Tm
+(- name VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 781.2 Tm
+(- type VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 768.4000000000001 Tm
+(- size BIGINT) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 755.6000000000001 Tm
+(- file_path VARCHAR) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 742.8000000000002 Tm
+(- uploaded_at TIMESTAMP) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 730.0000000000002 Tm
+(- user_id BIGINT FK -> users.id) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 709.2000000000003 Tm
+(Storage Design) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 695.2000000000003 Tm
+(- Database stores metadata and ownership mappings.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 682.4000000000003 Tm
+(- Filesystem stores binary file contents.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 661.6000000000004 Tm
+(12. Security Architecture) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 637.6000000000004 Tm
+(Security Components) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 623.6000000000004 Tm
+(- SecurityConfig) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 610.8000000000004 Tm
+(- JwtAuthenticationFilter) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 598.0000000000005 Tm
+(- JwtUtil) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 585.2000000000005 Tm
+(- PasswordEncoder \(BCrypt\)) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 564.4000000000005 Tm
+(Security Controls) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 550.4000000000005 Tm
+(- SessionCreationPolicy.STATELESS) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 537.6000000000006 Tm
+(- Endpoint-level role restrictions) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 524.8000000000006 Tm
+(- JWT signature validation before route execution) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 512.0000000000007 Tm
+(- CORS configuration for development origins) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 491.20000000000067 Tm
+(Hardening Recommendations) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 477.20000000000067 Tm
+(- Move jwtSecret and DB credentials to environment variables.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 464.40000000000066 Tm
+(- Add refresh token mechanism.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 451.60000000000065 Tm
+(- Add file content validation and malware scanning.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 438.80000000000064 Tm
+(- Add audit logs for high-risk operations.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 418.0000000000006 Tm
+(13. Frontend Pages & Components) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 394.0000000000006 Tm
+(Primary Routes) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 380.0000000000006 Tm
+(- /login) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 367.2000000000006 Tm
+(- /register) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 354.4000000000006 Tm
+(- /admin) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 341.6000000000006 Tm
+(- /admin/users) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 328.8000000000006 Tm
+(- /admin/files) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 316.00000000000057 Tm
+(- /dashboard) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 303.20000000000056 Tm
+(- /dashboard/files) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 290.40000000000055 Tm
+(- /dashboard/profile) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 269.60000000000053 Tm
+(Key Components) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 255.60000000000053 Tm
+(- AppLayout) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 242.80000000000052 Tm
+(- AppSidebar) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 230.0000000000005 Tm
+(- ProtectedRoute) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 217.2000000000005 Tm
+(- AuthContext provider) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 196.4000000000005 Tm
+(UI Assets) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 182.4000000000005 Tm
+(- images/ui-login.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 169.60000000000048 Tm
+(- images/ui-register.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 156.80000000000047 Tm
+(- images/ui-root.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 144.00000000000045 Tm
+(- images/ui-login-screen.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 131.20000000000044 Tm
+(- images/ui-register-screen.png) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 118.40000000000045 Tm
+(- images/ui-dashboard-screen.png) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 97.60000000000045 Tm
+(![UI Login]\(ui-login.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 84.60000000000045 Tm
+(Figure 13.1: Login screen used for credential-based access.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 63.60000000000045 Tm
+(![UI Register]\(ui-register.png\)) Tj
+ET
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 14 0 R >>
+endobj
+16 0 obj
+<< /Length 3985 >>
+stream
+BT
+/F1 9.7 Tf
+1 0 0 1 46 794 Tm
+(Figure 13.2: Registration screen for onboarding new users.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 773 Tm
+(![UI Root]\(ui-root.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 760 Tm
+(Figure 13.3: Root application view after route resolution.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 739 Tm
+(![UI Login Screen Diagram]\(ui-login-screen.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 726 Tm
+(Figure 13.4: Structural UI diagram of login page components and flow.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 705 Tm
+(![UI Register Screen Diagram]\(ui-register-screen.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 692 Tm
+(Figure 13.5: Structural UI diagram of registration page components and flow.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 671 Tm
+(![UI Dashboard Screen Diagram]\(ui-dashboard-screen.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 658 Tm
+(Figure 13.6: Structural UI diagram of dashboard composition and actions.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 637 Tm
+(14. Deployment Configuration) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 613 Tm
+(Local Setup) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 599 Tm
+(Frontend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 585 Tm
+(- cd frontend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 572.2 Tm
+(- pnpm install \(or npm install\)) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 559.4000000000001 Tm
+(- pnpm dev \(or npm run dev\)) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 538.6000000000001 Tm
+(Backend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 524.6000000000001 Tm
+(- cd backend) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 511.8000000000001 Tm
+(- mvn spring-boot:run) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 491.0000000000001 Tm
+(Configuration Highlights) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 477.0000000000001 Tm
+(- server.port=8080) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 464.2000000000001 Tm
+(- server.servlet.context-path=/api) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 451.4000000000001 Tm
+(- frontend Vite dev port=3000) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 438.6000000000001 Tm
+(- frontend API base URL=http://localhost:8080/api) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 417.80000000000007 Tm
+(Environment Recommendations) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 403.80000000000007 Tm
+(- Use reverse proxy + HTTPS in production.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 391.00000000000006 Tm
+(- Restrict CORS to trusted domains.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 378.20000000000005 Tm
+(- Use managed DB backups and log retention.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 357.40000000000003 Tm
+(![Backend Setup Flow]\(backend-setup-flow.png\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 344.40000000000003 Tm
+(Figure 14.1: Backend setup and runtime verification sequence for local environment.) Tj
+ET
+BT
+/F2 12 Tf
+1 0 0 1 46 323.40000000000003 Tm
+(15. Demo Credentials) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 299.40000000000003 Tm
+(Source) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 285.40000000000003 Tm
+(- Refer to DEMO_CREDENTIALS.txt in project root.) Tj
+ET
+BT
+/F2 10.3 Tf
+1 0 0 1 46 264.6 Tm
+(Validation Checklist) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 250.60000000000002 Tm
+(- Admin login works.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 237.8 Tm
+(- Customer login works.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 225 Tm
+(- Upload/list/download/delete flow works.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 212.2 Tm
+(- Unauthorized requests redirect to login.) Tj
+ET
+BT
+/F1 9.5 Tf
+1 0 0 1 46 199.39999999999998 Tm
+(- Admin routes reject non-admin role users.) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 178.59999999999997 Tm
+(Appendix: Important Code References) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 157.59999999999997 Tm
+(A\) frontend/src/services/api.ts) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 130.59999999999997 Tm
+(export const API_BASE_URL = "http://localhost:8080/api";) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 111.09999999999997 Tm
+(api.interceptors.request.use\(\(config\) => {) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 99.59999999999997 Tm
+(  const token = localStorage.getItem\("auth_token"\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 88.09999999999997 Tm
+(  if \(token\) config.headers.Authorization = `Bearer ${token}`;) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 76.59999999999997 Tm
+(  return config;) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 65.09999999999997 Tm
+(}\);) Tj
+ET
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 16 0 R >>
+endobj
+18 0 obj
+<< /Length 2271 >>
+stream
+BT
+/F1 9.7 Tf
+1 0 0 1 46 786 Tm
+(B\) frontend/src/contexts/AuthContext.tsx) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 759 Tm
+(const login = useCallback\(async \(email: string, password: string\) => {) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 747.5 Tm
+(  const response = await authService.login\({ email, password }\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 736 Tm
+(  setToken\(response.token\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 724.5 Tm
+(  setUser\(response.user\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 713 Tm
+(  localStorage.setItem\("auth_token", response.token\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 701.5 Tm
+(  localStorage.setItem\("auth_user", JSON.stringify\(response.user\)\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 690 Tm
+(}, []\);) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 664.5 Tm
+(C\) backend/src/main/java/com/example/filemanagement/security/JwtUtil.java) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 637.5 Tm
+(public String generateToken\(UserDetails userDetails, String role\) {) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 626 Tm
+(    Map<String, Object> claims = new HashMap<>\(\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 614.5 Tm
+(    claims.put\("role", role\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 603 Tm
+(    return createToken\(claims, userDetails.getUsername\(\)\);) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 591.5 Tm
+(}) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 566 Tm
+(D\) backend/src/main/java/com/example/filemanagement/config/SecurityConfig.java) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 539 Tm
+(.authorizeHttpRequests\(authz -> authz) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 527.5 Tm
+(    .requestMatchers\(HttpMethod.POST, "/auth/login", "/auth/register"\).permitAll\(\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 516 Tm
+(    .requestMatchers\(HttpMethod.GET, "/admin/**"\).hasRole\("ADMIN"\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 504.5 Tm
+(    .anyRequest\(\).authenticated\(\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 493 Tm
+(\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 467.5 Tm
+(E\) backend/src/main/java/com/example/filemanagement/controller/FileController.java) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 440.5 Tm
+(@PostMapping\("/upload"\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 429 Tm
+(@GetMapping\("/user"\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 417.5 Tm
+(@DeleteMapping\("/{fileId}"\)) Tj
+ET
+BT
+/F3 8.8 Tf
+1 0 0 1 46 406 Tm
+(@GetMapping\("/download/{fileId}"\)) Tj
+ET
+BT
+/F1 9.7 Tf
+1 0 0 1 46 380.5 Tm
+(End of Document.) Tj
+ET
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 20 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 1 0 R /F2 2 0 R /F3 3 0 R >> >> /Contents 18 0 R >>
+endobj
+20 0 obj
+<< /Type /Pages /Count 8 /Kids [5 0 R 7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R] >>
+endobj
+21 0 obj
+<< /Type /Catalog /Pages 20 0 R >>
+endobj
+xref
+0 22
+0000000000 65535 f 
+0000000009 00000 n 
+0000000079 00000 n 
+0000000154 00000 n 
+0000000222 00000 n 
+0000004672 00000 n 
+0000004819 00000 n 
+0000009550 00000 n 
+0000009697 00000 n 
+0000013817 00000 n 
+0000013964 00000 n 
+0000018111 00000 n 
+0000018260 00000 n 
+0000022306 00000 n 
+0000022455 00000 n 
+0000026488 00000 n 
+0000026637 00000 n 
+0000030675 00000 n 
+0000030824 00000 n 
+0000033148 00000 n 
+0000033297 00000 n 
+0000033402 00000 n 
+trailer
+<< /Size 22 /Root 21 0 R >>
+startxref
+33453
+%%EOF
